@@ -2,6 +2,12 @@ spring:
   application:
     name: mcp-agent
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
 github:
   owner: ${GITHUB_OWNER}
   repo: ${GITHUB_REPO}
