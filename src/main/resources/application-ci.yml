@@ -1,0 +1,6 @@
+github:
+  owner: demo
+  repo: demo
+
+anthropic:
+  api-key: demo-key
