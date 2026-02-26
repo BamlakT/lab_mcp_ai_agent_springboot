@@ -12,9 +12,9 @@ github:
   owner: ${GITHUB_OWNER}
   repo: ${GITHUB_REPO}
   
-anthropic:
-  api-key: ${ANTHROPIC_API_KEY}
-  model: claude-opus-4-20250514
+gemini:
+  api-key: ${GEMINI_API_KEY}
+  model: gemini-1.5-pro
   timeout-seconds: 60
   
 openai:

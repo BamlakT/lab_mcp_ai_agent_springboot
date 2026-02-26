@@ -1,6 +1,6 @@
 package com.example.agent.config;
 
-import dev.langchain4j.model.anthropic.AnthropicChatModel;
+import dev.langchain4j.model.googleai.GoogleAiGeminiChatModel;
 import dev.langchain4j.service.AiServices;
 import com.example.agent.agent.BacklogAgent;
 import com.example.agent.tools.AgentTool;
@@ -17,16 +17,12 @@ import java.util.List;
 public class LangChainConfig {
     @Bean
     @Profile("!ci")
-    public AnthropicChatModel anthropicChatModel(
-            @Value("${anthropic.api-key}") String apiKey,
-            @Value("${anthropic.model}") String model,
-            @Value("${anthropic.max-tokens:800}") Integer maxTokens,
-            @Value("${anthropic.timeout-seconds:60}") Integer timeoutSeconds) {
-        return AnthropicChatModel.builder()
+    public GoogleAiGeminiChatModel geminiChatModel(
+            @Value("${gemini.api-key}") String apiKey,
+            @Value("${gemini.model}") String model) {
+        return GoogleAiGeminiChatModel.builder()
                 .apiKey(apiKey)
                 .modelName(model)
-                .maxTokens(maxTokens)
-                .timeout(Duration.ofSeconds(timeoutSeconds))
                 .build();
     }
 

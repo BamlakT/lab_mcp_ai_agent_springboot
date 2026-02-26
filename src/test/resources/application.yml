@@ -2,9 +2,9 @@ github:
   owner: test-owner
   repo: test-repo
   
-anthropic:
+gemini:
   api-key: test-api-key
-  model: claude-opus-4-20250514
+  model: gemini-1.5-pro
   timeout-seconds: 60
   
 openai:

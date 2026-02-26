@@ -2,5 +2,5 @@ github:
   owner: demo
   repo: demo
 
-anthropic:
+gemini:
   api-key: demo-key

@@ -18,11 +18,11 @@ spec:
           image: ai-agent:dev
           imagePullPolicy: IfNotPresent
           env:
-            - name: ANTHROPIC_API_KEY
+            - name: GEMINI_API_KEY
               valueFrom:
                 secretKeyRef:
                   name: agent-secrets
-                  key: ANTHROPIC_API_KEY
+                  key: GEMINI_API_KEY
             - name: MCP_BASE_URL
               value: "http://github-mcp-server:3333"
             - name: MCP_PATH
