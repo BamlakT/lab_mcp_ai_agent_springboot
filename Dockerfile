@@ -1,14 +1,10 @@
-# Use an official Eclipse Temurin runtime as a parent image
-FROM eclipse-temurin:21-jre-alpine
-
-# Set the working directory to /app
+FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
+COPY . .
+RUN ./gradlew --no-daemon clean test bootJar
 
-# Copy the built jar file
-COPY build/libs/*.jar app.jar
-
-# Expose the application port
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY --from=build /app/build/libs/*.jar app.jar
 EXPOSE 8080
-
-# Run the jar file
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
