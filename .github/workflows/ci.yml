@@ -60,7 +60,9 @@ jobs:
           timeout_seconds: 10
           max_attempts: 6
           command: |
-            curl -fsS "$(minikube service ai-agent --url)/actuator/health"
+            kubectl port-forward svc/ai-agent 8080:8080 &
+            sleep 3
+            curl -fsS "http://localhost:8080/actuator/health"
 
       - name: Log pods on failure
         if: failure()
